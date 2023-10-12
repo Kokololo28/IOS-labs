@@ -1,0 +1,57 @@
+import Foundation
+
+var operation: String? = "+" // Можна вибрати операцію "+", "-", "*", або "/"
+var num1: Double? = 10.0
+var num2: Double? = 7.0
+
+func add(_ a: Double, _ b: Double) -> Double
+{
+    return a + b
+}
+
+func subtract(_ a: Double, _ b: Double) -> Double
+{
+    return a - b
+}
+
+func multiply(_ a: Double, _ b: Double) -> Double
+{
+    return a * b
+}
+
+func divide(_ a: Double, _ b: Double) -> String
+{
+    if b != 0.0
+    {
+        return String(a / b)
+    }
+    
+    else
+    {
+        return "Помилка: ділення на нуль"
+    }
+}
+
+if let operation = operation, let num1 = num1, let num2 = num2
+{
+    var result: String = "Результат: "
+
+    switch operation
+    {
+    case "+":
+        result += String(add(num1, num2))
+    case "-":
+        result += String(subtract(num1, num2))
+    case "*":
+        result += String(multiply(num1, num2))
+    case "/":
+        result += divide(num1, num2)
+    default:
+        result = "Невідома операція"
+    }
+    print(result)
+}
+else
+{
+    print("Змінні не були правильно ініціалізовані")
+}
